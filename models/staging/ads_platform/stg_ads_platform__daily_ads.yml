@@ -1,34 +1,34 @@
 models:
   - name: stg_ads_platform__daily_ads
-    description: '{{ doc("bingeflix_ads_table") }}'
+    description: The daily ad campaigns table.
     columns:
       - name: date
-        description: '{{ doc("bingeflix_ads_column_date") }}'
+        description: The calendar date of the campaign reporting period.
         tests:
           - not_null
 
       - name: campaign_id
-        description: '{{ doc("bingeflix_ads_column_campaign_id") }}'
+        description: The unique identifier for the campaign.
         tests:
           - not_null
 
       - name: surrogate_key
-        description: '{{ doc("bingeflix_ads_column_surrogate_key") }}'
+        description: The surrogate key.
         tests:
           - not_null
           - unique
 
       - name: spend
-        description: '{{ doc("bingeflix_ads_column_spend") }}'
+        description: The amount spent on the campaign.
         tests:
           - not_null
 
       - name: cpm
-        description: '{{ doc("bingeflix_ads_column_cpm") }}'
+        description: The cost charged by the ads platform per thousand impressions.
         tests:
           - not_null
 
       - name: ctr
-        description: '{{ doc("bingeflix_ads_column_ctr") }}'
+        description: The click through rate on the campaign impressions.
         tests:
           - not_null
