@@ -12,16 +12,16 @@ sources:
             description: '{{ doc("bingeflix_ads_column_date" )}}'
 
           - name: campaign_id
-            description: '{{ doc("bingeflix_ads_campaign_id" )}}'
+            description: '{{ doc("bingeflix_ads_column_campaign_id" )}}'
         
           - name: spend
-            description: '{{ doc("bingeflix_ads_spend" )}}'
+            description: '{{ doc("bingeflix_ads_column_spend" )}}'
         
           - name: cpm
-            description: '{{ doc("bingeflix_ads_cpm" )}}'
+            description: '{{ doc("bingeflix_ads_column_cpm" )}}'
 
           - name: ctr
-            description: '{{ doc("bingeflix_ads_ctr" )}}'
+            description: '{{ doc("bingeflix_ads_column_ctr" )}}'
       
         
 
