@@ -16,6 +16,10 @@ When the ad campaign was served
 The unique identifier of the ad campaign
 {% enddocs %}
 
+{% docs bingeflix_ads_column_surrogate_key %}
+Generates a surrogate key using date and campaign id
+{% enddocs %}
+
 {% docs bingeflix_ads_column_spend %}
 The amount spent on the ad campaign 
 {% enddocs %}
