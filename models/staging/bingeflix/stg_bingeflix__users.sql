@@ -1,11 +1,11 @@
-with
+WITH
 
-source as (
-    select
+source AS (
+    SELECT
         user_id,
         created_at,
         phone_number,
-        NULLIF(deleted_at, '') as deleted_at,
+        NULLIF(deleted_at, '') AS deleted_at,
         username,
         name,
         sex,
@@ -13,8 +13,8 @@ source as (
         birthdate,
         region,
         country
-    from {{ source('bingeflix', 'users') }}
+    FROM {{ source('bingeflix', 'users') }}
 )
 
-select * from source
+SELECT * FROM source
 
