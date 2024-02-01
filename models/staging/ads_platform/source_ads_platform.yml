@@ -1,7 +1,7 @@
 sources:
   - name: ads_platform
     schema: bingeflix
-    description: This source contains tables from the ads platform 
+    description: This source contains tables from the ads platform
     database: raw
     tables:
       - name: daily_ads
@@ -13,17 +13,12 @@ sources:
 
           - name: campaign_id
             description: '{{ doc("bingeflix_ads_column_campaign_id" )}}'
-        
+
           - name: spend
             description: '{{ doc("bingeflix_ads_column_spend" )}}'
-        
+
           - name: cpm
             description: '{{ doc("bingeflix_ads_column_cpm" )}}'
 
           - name: ctr
             description: '{{ doc("bingeflix_ads_column_ctr" )}}'
-      
-        
-
-
-
