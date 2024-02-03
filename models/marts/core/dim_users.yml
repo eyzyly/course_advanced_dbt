@@ -1,6 +1,9 @@
 models:
   - name: dim_users
     description: This model contains information about Bingeflix users.
+    config:
+      tags:
+        - daily
     meta:
       priority: high
       owner:
