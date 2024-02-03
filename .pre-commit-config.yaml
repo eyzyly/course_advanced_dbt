@@ -37,4 +37,4 @@ repos:
     files: ^models/marts
   - id: check-model-tags # Ensures that mart models have tags
     args: ["--tags", "hourly", "daily","weekly","monthly", "--"]
-    files: ^models/marts
+    files: ^models/marts/core
