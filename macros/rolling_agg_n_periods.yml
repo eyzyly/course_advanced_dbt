@@ -1,0 +1,23 @@
+version: 2
+
+macros:
+  - name: rolling_agg_n_periods
+    description: This macro calculates an arbitary rolling period and takes standard SQL aggregation functions (avg,count,sum,min,max)
+    docs:
+      show: true
+    arguments:
+      - name: agg_type
+        type: string
+        description: Standard SQL Agg Functions (Avg,Count,Min,Max,Sum)
+      - name: column_name
+        type: string
+        description: The column you want to aggregate on
+      - name: partition_by
+        type: string
+        description: The column you want to partition by
+      - name: order_by
+        type: string
+        description: The column you want to order by
+      - name: num_period
+        type: integer
+        description: The rolling period
