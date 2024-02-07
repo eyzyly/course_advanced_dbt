@@ -1,6 +1,9 @@
 models:
   - name: dim_users
     description: This model contains information about Bingeflix users.
+    config:
+      tags:
+        - daily
     meta:
       priority: high
       owner:
@@ -71,3 +74,11 @@ models:
         description: Where the user lives.
         tests:
           - not_null
+
+      - name: first_subscription_starts_at
+        data_type: timestamp_ntz
+        description: The first time a user subscribed to Bingeflix
+
+      - name: count_of_subscriptions
+        data_type: number
+        description: The number of subscriptions a user has through history

@@ -21,11 +21,11 @@ Generates a surrogate key using date and campaign id
 {% enddocs %}
 
 {% docs bingeflix_ads_column_spend %}
-The amount spent on the ad campaign 
+The amount spent on the ad campaign
 {% enddocs %}
 
 {% docs bingeflix_ads_column_cpm %}
-The average cost per 1,000 impressions 
+The average cost per 1,000 impressions
 {% enddocs %}
 
 {% docs bingeflix_ads_column_ctr %}
@@ -39,7 +39,3 @@ This section contains documentation from the Bingeflix Users table.
 {% docs bingeflix_column_user_id %}
 The unique identifier of the Bingeflix user. A user is created when...
 {% enddocs %}
-
-
-
-

@@ -1,0 +1,11 @@
+version: 2
+
+macros:
+  - name: convert_to_date_month
+    description: This macro converts any date into the 1st of the month for ease of aggregation
+    docs:
+      show: true
+    arguments:
+      - name: date_column
+        type: string
+        description: The date column you want to truncate. Make sure its a date type
