@@ -23,3 +23,12 @@
 - Columns that should never be null must have a not_null schema test.
 - Columns that should be unique must have a unique schema test.
 - Where possible, use schema tests from the dbt_utils or dbt_expectations packages to perform extra verification.
+
+#### Method for identifying redundant tests
+- Start from the dim/fct marts models
+- Identify what tests are being applied on a given column and if they are transformed
+- If not transformed, thats a good column to investigate
+- Explore the table dependencies of the column and confirm if transforms are being applied
+- If not transformed, good column to remove tests
+- A test can exist at source(.yml) or a model (stg,int,fct)
+- If a test is being done at source and there is no transform at staging, remove tests at staging layer
