@@ -50,4 +50,22 @@ seeds:
     dbt_project_evaluator_exceptions:
       +enabled: false
 
+  course_advanced_dbt:
+    unit_testing:
+      +schema: unit_testing
+      +tags: unit_testing
+      unit_test_input_dim_subscriptions:
+        +column_types:
+          subscription_id: NUMBER
+          subscription_plan_id: NUMBER
+          user_id: NUMBER
+          starts_at: timestamp_ntz
+          ends_at: timestamp_ntz
+          plan_name: varchar
+          pricing: NUMBER
+          billing_period: varchar
+
+
+
+
 on-run-end: "{{ dbt_project_evaluator.print_dbt_project_evaluator_issues() }}"
