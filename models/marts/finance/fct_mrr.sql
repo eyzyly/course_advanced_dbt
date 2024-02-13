@@ -1,5 +1,8 @@
 {{ config(tags="p0") }}
 
+{% set import_subscriptions = unit_testing_select_table(ref('dim_subscriptions'), ref('unit_test_input_dim_subscriptions')) %}
+{% set import_dates = unit_testing_select_table(ref('int_dates'), ref('unit_test_input_int_dates')) %}
+
 
 -- This model is created following the dbt MRR playbook: https://www.getdbt.com/blog/modeling-subscription-revenue/
 
@@ -15,10 +18,10 @@ monthly_subscriptions AS (
         ends_at,
         plan_name,
         pricing,
-        DATE({{ convert_to_date_month(starts_at) }}) AS start_month,
-        DATE({{ convert_to_date_month(ends_at) }}) AS end_month
+        DATE({{ convert_to_date_month('starts_at') }}) AS start_month,
+        DATE({{ convert_to_date_month('ends_at') }}) AS end_month
     FROM
-        {{ ref('dim_subscriptions') }}
+        {{ import_subscriptions }}
     WHERE
         billing_period = 'monthly'
 ),
@@ -28,7 +31,7 @@ months AS (
     SELECT
         calendar_date AS date_month
     FROM
-        {{ ref('int_dates') }}
+        {{ import_dates }}
     WHERE
         day_of_month = 1
 ),
@@ -49,7 +52,7 @@ subscription_periods AS (
         -- For users who haven't ended their subscription yet (end_month is NULL) set the end_month to one month from the current date (these rows will be removed from the final CTE)
         CASE
             WHEN start_month = end_month THEN DATEADD('month', 1, end_month)
-            WHEN end_month IS NULL THEN DATE(DATEADD('month', 1, {{ convert_to_date_month(CURRENT_DATE) }}))
+            WHEN end_month IS NULL THEN DATE(DATEADD('month', 1, {{ convert_to_date_month('CURRENT_DATE') }}))
             ELSE end_month
         END AS end_month
     FROM
@@ -201,7 +204,7 @@ final AS (
             ON mrr_with_changes.user_id = subscription_periods.user_id
                 AND mrr_with_changes.subscription_id = subscription_periods.subscription_id
     WHERE
-        date_month <= {{ convert_to_date_month(CURRENT_DATE) }}
+        date_month <= {{ convert_to_date_month('CURRENT_DATE') }}
 )
 
 SELECT
