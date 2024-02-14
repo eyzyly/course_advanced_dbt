@@ -3,6 +3,8 @@ name: Scheduled dbt production run
 on:
   schedule:
     - cron: '0 10 * * *' # Run refresh at 10am UTC everyday (6am EST)
+  workflow_dispatch:
+
 
 env:
   DBT_PROFILE_TARGET: production
